@@ -68,14 +68,8 @@ public class Main {
         System.arraycopy(Main.arr, 0, arrOne, 0, arrOne.length);
         System.arraycopy(Main.arr, arrOne.length, arrTwo, 0, arrTwo.length);
 
-        Thread thread1;
-        thread1 = new Thread(() -> {
-            TestWork.calculate(arrOne);
-        });
-
-        Thread thread2 = new Thread(() -> {
-            TestWork.calculate(arrTwo);
-        });
+        Thread thread1 = new Thread(() -> TestWork.calculate(arrOne));
+        Thread thread2 = new Thread(() -> TestWork.calculate(arrTwo));
 
         thread1.start();
         thread2.start();
